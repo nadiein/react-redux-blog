@@ -10,7 +10,7 @@ import {Provider} from 'react-redux';
 import {Router, Route, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
-import reducers from './app/reducers/';
+import reducers from './app/reducers';
 
 import Layout from "./app/components/Layout";
 import Articles from "./app/components/Articles";

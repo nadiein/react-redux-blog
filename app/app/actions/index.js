@@ -2,7 +2,7 @@ import {
     FETCH_ARTICLES_START,
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE
-} from '../../actionTypes';
+} from './../../actionTypes';
 
 import {fetchArticles as fetchArticlesApi} from '../api';
 
