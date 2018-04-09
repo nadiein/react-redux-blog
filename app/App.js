@@ -1,3 +1,5 @@
+import './styles/app.scss';
+
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import React from "react";
@@ -8,10 +10,10 @@ import {Provider} from 'react-redux';
 import {Router, Route, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
-import reducers from './reducers/';
+import reducers from './app/reducers/';
 
-import TopContainer from "./components/TopContainer";
-import SampleContainer from "./components/SampleContainer";
+import Layout from "./app/components/Layout";
+import Articles from "./app/components/Articles";
 
 const muiTheme = createMuiTheme({});
 const store = createStore(reducers, composeWithDevTools(
@@ -25,8 +27,9 @@ render(
     <Provider store={store}>
         <Router history={history}>
           <div>
-            <Route exact path="/" component={TopContainer} />
-            <Route path="/articles" component={SampleContainer} />
+            <Route component={Layout}>
+                <Route path="/" component={Articles} />
+            </Route>
           </div>
         </Router>
     </Provider>

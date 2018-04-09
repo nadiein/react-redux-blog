@@ -16,8 +16,25 @@ const config = {
         exclude: [path.resolve(__dirname, "node_modules")],
         loader: "babel-loader",
         query: {
-          presets: ["env", "react", "stage-0"]
+          presets: ["es2015", "env", "react", "stage-0"]
         }
+      },
+      {
+        test: /\.(css|scss)$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 50000,
+          mimetype: 'application/font-woff',
+          name: './fonts/[name].[ext]'
+        },
       }
     ]
   },
