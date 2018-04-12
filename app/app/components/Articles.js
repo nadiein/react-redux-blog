@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import R from 'ramda';
 
-import {fetchArticles} from './../actions';
+import {fetchArticles, loadMore} from './../actions';
 import {getArticles} from './../../selectors';
 
 class Articles extends Component {
@@ -15,8 +15,8 @@ class Articles extends Component {
         const excerpt = `${R.take(60, article.description)}...`;
 
         return (
-            <div className="col-sm-6">
-                <div key={index} className="card article">
+            <div className="col-sm-6" key={index}>
+                <div className="card article">
                     <div className="card-header article-header">
                         <img src={article.picture} alt={article.name} />
                     </div>
@@ -33,23 +33,27 @@ class Articles extends Component {
     }
 
     render() {
-        const {articles} = this.props;
-        console.log(articles);
+        const {articles, loadMore} = this.props;
+
         return (
             <div className="articles cards row justify-content-between">
                 {articles.map((article, index) => this.renderArticle(article, index)
                 )}
+                <button onClick={loadMore}>Load More</button>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => ({
-    articles: getArticles(state)
-})
+const mapStateToProps = state => {
+    return {
+        articles: getArticles(state)
+    }
+}
 
 const mapDispatchToProps = {
-    fetchArticles
+    fetchArticles,
+    loadMore
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Articles);

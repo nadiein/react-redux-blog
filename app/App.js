@@ -14,6 +14,7 @@ import reducers from './app/reducers';
 
 import Layout from "./app/components/Layout";
 import Articles from "./app/components/Articles";
+import Article from "./app/components/Article";
 
 const muiTheme = createMuiTheme({});
 const store = createStore(reducers, composeWithDevTools(
@@ -30,6 +31,7 @@ render(
             <Route component={Layout}>
                 <Route path="/" component={Articles} />
             </Route>
+            <Route path="/articles/:id" component={Article} />
           </div>
         </Router>
     </Provider>

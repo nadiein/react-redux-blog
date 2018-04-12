@@ -6,3 +6,5 @@ export const getArticles = state => {
     const articles = R.map(id => getArticleById(state, id), state.articlesPage.ids)
     return articles
 }
+
+export const getRenderedArticlesLength = state => R.length(state.articlesPage.ids);
