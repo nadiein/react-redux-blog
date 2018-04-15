@@ -35,7 +35,7 @@ class Articles extends Component {
                         <p>{excerpt}</p>
                         <span>{article.tags}</span>
                     </div>
-                    <button onClick={() => addArticleToBookmark(article.id)}>
+                    <button className="btn" onClick={() => addArticleToBookmark(article.id)}>
                         <FontAwesomeIcon icon={faSave} />
                     </button>
                 </div>
