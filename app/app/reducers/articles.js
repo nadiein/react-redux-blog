@@ -1,8 +1,9 @@
 import R from 'ramda';
+
 import {
     FETCH_ARTICLES_SUCCESS,
-    LOAD_MORE_SUCCESS,
-    FETCH_ARTICLE_BY_ID_SUCCESS
+    FETCH_ARTICLE_BY_ID_SUCCESS,
+    LOAD_MORE_SUCCESS
 } from './../../actionTypes';
 
 const initialState = {};

@@ -27,12 +27,10 @@ render(
   <MuiThemeProvider theme={muiTheme}>
     <Provider store={store}>
         <Router history={history}>
-          <div>
-            <Route component={Layout}>
-                <Route path="/" component={Articles} />
-            </Route>
-            <Route path="/articles/:id" component={Article} />
-          </div>
+          <Route component={Layout}>
+              <Route path="/" component={Articles} />
+          </Route>
+          <Route path="/:id" component={Article} />
         </Router>
     </Provider>
   </MuiThemeProvider>,

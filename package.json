@@ -71,6 +71,9 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
+    "@fortawesome/react-fontawesome": "^0.0.18",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -78,6 +81,7 @@
     "babel-runtime": "^6.26.0",
     "bootstrap": "^4.0.0",
     "classnames": "^2.2.5",
+    "history": "^4.7.2",
     "immutable": "^3.8.2",
     "material-ui": "^1.0.0-beta.40",
     "material-ui-icons": "^1.0.0-beta.36",

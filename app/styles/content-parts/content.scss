@@ -1,6 +1,43 @@
+.toolbar {
+    margin-bottom: 25px;
+
+    .fa {
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.bookmark {
+    color: #fff;
+
+    a {
+        color: #fff;
+    }
+
+    .fa-bookmark {
+        margin-right: 10px;
+    }
+}
+
 .articles {
 
     .article {
         margin-bottom: 15px;
+    }
+}
+
+.picture-holder {
+
+    img {
+        width: 100%;
+    }
+}
+
+.article-info {
+
+    a {
+        display: block;
+        margin-bottom: 15px;
+        color: #fff;
     }
 }

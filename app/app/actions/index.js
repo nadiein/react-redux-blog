@@ -7,7 +7,8 @@ import {
     LOAD_MORE_FAILURE,
     FETCH_ARTICLE_BY_ID_START,
     FETCH_ARTICLE_BY_ID_SUCCESS,
-    FETCH_ARTICLE_BY_ID_FAILURE
+    FETCH_ARTICLE_BY_ID_FAILURE, 
+    ADD_ARTICLE_TO_BOOKMARK
 } from './../../actionTypes';
 
 import {getRenderedArticlesLength} from '../../selectors';
@@ -59,7 +60,7 @@ export const fetchArticleById = (id) => async dispatch => {
     dispatch({type: FETCH_ARTICLE_BY_ID_START});
 
     try {
-        const article = await fetchArticleByIdApi(id);
+        const article = await fetchArticleByIdApi(id)
         dispatch({
             type: FETCH_ARTICLE_BY_ID_SUCCESS,
             payload: article
@@ -71,4 +72,11 @@ export const fetchArticleById = (id) => async dispatch => {
             error: true
         })
     }
+}
+
+export const addArticleToBookmark = (id) => dispatch => {
+    dispatch({
+        type: ADD_ARTICLE_TO_BOOKMARK, 
+        payload: id
+    })
 }

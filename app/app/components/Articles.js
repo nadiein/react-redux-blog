@@ -3,7 +3,14 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import R from 'ramda';
 
-import {fetchArticles, loadMore} from './../actions';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faSave from '@fortawesome/fontawesome-free-solid/faSave';
+
+import {
+    fetchArticles, 
+    loadMore, 
+    addArticleToBookmark
+} from './../actions';
 import {getArticles} from './../../selectors';
 
 class Articles extends Component {
@@ -12,6 +19,7 @@ class Articles extends Component {
     }
 
     renderArticle = (article, index) => {
+        const {addArticleToBookmark} = this.props;
         const excerpt = `${R.take(60, article.description)}...`;
 
         return (
@@ -21,12 +29,15 @@ class Articles extends Component {
                         <img src={article.picture} alt={article.name} />
                     </div>
                     <div className="card-body article-body">
-                        <Link to={`/articles/${article.id}`}>
+                        <Link to={`/${article.id}`}>
                             <h2>{article.name}</h2>
                         </Link>
                         <p>{excerpt}</p>
                         <span>{article.tags}</span>
                     </div>
+                    <button onClick={() => addArticleToBookmark(article.id)}>
+                        <FontAwesomeIcon icon={faSave} />
+                    </button>
                 </div>
             </div>
         )
@@ -36,9 +47,11 @@ class Articles extends Component {
         const {articles, loadMore} = this.props;
 
         return (
-            <div className="articles cards row justify-content-between">
-                {articles.map((article, index) => this.renderArticle(article, index)
-                )}
+            <div className="d-flex flex-column">
+                <div className="articles cards row justify-content-between">
+                    {articles.map((article, index) => this.renderArticle(article, index)
+                    )}
+                </div>
                 <button onClick={loadMore}>Load More</button>
             </div>
         );
@@ -53,7 +66,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     fetchArticles,
-    loadMore
+    loadMore,
+    addArticleToBookmark
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Articles);
